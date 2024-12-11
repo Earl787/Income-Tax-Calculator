@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum Calculator</title>
+</head>
+<body>
+    <h1>Sum Calculator</h1>
+    <p>Enter numbers one by one. To stop entering numbers, click "Calculate Sum".</p>
+
+    <button onclick="calculateSum()">Calculate Sum</button>
+    <p id="result"></p>
+
+    <script>
+        function calculateSum() {
+            let sum = 0;
+            let input;
+            do {
+                input = prompt("Enter a number (or leave empty to finish):");
+                if (input !== null && input.trim() !== "") {
+                    const number = parseFloat(input);
+                    if (!isNaN(number)) {
+                        sum += number;
+                    } else {
+                        alert("Please enter a valid number.");
+                    }
+                }
+            } while (input !== null && input.trim() !== "");
+
+            document.getElementById("result").textContent = `The sum of the numbers is: ${sum}`;
+        }
+    </script>
+</body>
+</html>
